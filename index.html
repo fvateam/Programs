@@ -14,707 +14,1401 @@
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
 <style>
-
-.bp-lp{
-    --accent:#D92332;
-    --accent-soft:#f03544;
-    --bg:#050505;
-    --bg2:#0b0b0b;
-    --card:#111111;
-    --line:#282828;
-    --text:#f2f2f2;
-    --muted:#a5a5a5;
-    --dim:#6b6b6b;
-    --white:#ffffff;
-  }
-.bp-lp *{box-sizing:border-box;margin:0;padding:0;}
-.bp-lp{scroll-behavior:smooth;background:var(--bg);}
-.bp-lp{background:var(--bg);color:var(--text);font-family:"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;}
-.bp-lp .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
-.bp-lp .narrow{max-width:920px;}
-
-  /* TYPE */
-.bp-lp .display{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.5px;line-height:1.06;color:var(--white);}
-.bp-lp .display em{color:var(--accent);font-style:italic;}
-.bp-lp .chapter{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
-.bp-lp .chapter .bar{width:46px;height:2px;background:var(--accent);}
-.bp-lp .chapter .lbl{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;}
-.bp-lp .lede{color:var(--muted);font-size:clamp(15px,1.7vw,18px);}
-
-  /* NAV */
-.bp-lp nav{position:sticky;top:0;z-index:60;background:rgba(5,5,5,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-.bp-lp nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
-.bp-lp nav .logo{font-family:Georgia,serif;font-weight:700;font-size:20px;color:var(--white);}
-.bp-lp nav .logo span{color:var(--accent);}
-.bp-lp nav .links{display:flex;gap:28px;align-items:center;}
-.bp-lp nav .links a{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:.1em;text-transform:uppercase;}
-.bp-lp nav .links a:hover{color:var(--white);}
-.bp-lp nav .navcta{border:1px solid var(--accent);color:var(--accent);padding:10px 22px;font-weight:800;}
-.bp-lp nav .navcta:hover{background:var(--accent);color:#fff !important;}
-  @media(max-width:860px){
-.bp-lp nav .links a:not(.navcta){display:none;}}
-.bp-lp .btn{display:inline-block;text-decoration:none;text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:800;padding:18px 36px;background:var(--accent);color:#fff;transition:background .15s ease;}
-.bp-lp .btn:hover{background:var(--accent-soft);}
-.bp-lp .btn.ghost{background:transparent;color:var(--white);border-bottom:1px solid var(--accent);padding:8px 2px;letter-spacing:.1em;}
-
-  /* HERO */
-.bp-lp .hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:88vh;align-items:center;border-bottom:1px solid var(--line);}
-.bp-lp .hero .copy{padding:80px 32px 80px 0;}
-.bp-lp .hero .copy-inner{max-width:620px;margin-left:auto;padding-left:32px;}
-.bp-lp .hero .kick{color:var(--accent);font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;}
-.bp-lp .hero h1{font-size:clamp(38px,5.4vw,74px);margin:22px 0 0;}
-.bp-lp .hero p{margin-top:26px;color:var(--muted);font-size:clamp(16px,1.8vw,19px);max-width:52ch;}
-.bp-lp .hero .actions{margin-top:38px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
-.bp-lp .hero .fineprint{margin-top:26px;color:var(--dim);font-size:13px;font-style:italic;}
-.bp-lp .hero .art{
-    align-self:stretch;min-height:88vh;
-    background:linear-gradient(160deg,#1c0e10,#080808 60%);
-    border-left:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--dim);font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:20px;
-  }
-  @media(max-width:900px){
-.bp-lp .hero{grid-template-columns:1fr;min-height:auto;}
-.bp-lp .hero .copy{padding:64px 0 48px;}
-.bp-lp .hero .copy-inner{margin:0;padding-left:0;}
-.bp-lp .hero .art{min-height:340px;border-left:none;border-top:1px solid var(--line);order:2;}
-  }
-
-  /* PRESS */
-.bp-lp .press{padding:30px 0;border-bottom:1px solid var(--line);background:var(--bg2);}
-.bp-lp .press .label{text-align:center;color:var(--dim);font-size:11px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:18px;}
-.bp-lp .press .marks{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px 40px;}
-.bp-lp .press .marks span{color:#8a8a8a;font-family:Georgia,serif;font-size:18px;white-space:nowrap;}
-.bp-lp section.pad{padding:96px 0;}
-.bp-lp .bg2{background:var(--bg2);}
-.bp-lp .bordered{border-bottom:1px solid var(--line);}
-
-  /* SPLIT SECTION */
-.bp-lp .split{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;}
-.bp-lp .split .art{
-    min-height:520px;align-self:stretch;
-    background:linear-gradient(150deg,#1a0d0f,#090909 65%);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--dim);font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:20px;
-  }
-.bp-lp .split .copy{padding:72px 56px;}
-.bp-lp .split.rev .copy{order:-1;}
-.bp-lp .split h2{font-size:clamp(28px,3.6vw,46px);}
-.bp-lp .split p{margin-top:18px;color:#cfcfcf;}
-.bp-lp .split p.sig{margin-top:24px;color:var(--accent);font-style:italic;font-family:Georgia,serif;font-size:17px;}
-  @media(max-width:900px){
-.bp-lp .split{grid-template-columns:1fr;}
-.bp-lp .split .copy{padding:56px 32px;}
-.bp-lp .split.rev .copy{order:0;}
-.bp-lp .split .art{min-height:300px;}
-  }
-
-  /* LADDER */
-.bp-lp .ladder{display:flex;align-items:stretch;margin-top:46px;}
-.bp-lp .ladder .card{flex:1 1 0;min-width:0;}
-.bp-lp .arrow{flex:0 0 58px;display:flex;align-items:center;justify-content:center;color:var(--accent);}
-.bp-lp .arrow svg{width:28px;height:28px;}
-  @media(max-width:960px){
-.bp-lp .ladder{flex-direction:column;max-width:470px;margin:46px auto 0;}
-.bp-lp .arrow{flex:0 0 auto;height:52px;transform:rotate(90deg);}
-  }
-.bp-lp .card{background:var(--card);border:1px solid var(--line);padding:30px 26px 32px;display:flex;flex-direction:column;transition:border-color .18s ease,background .18s ease;}
-.bp-lp .card:hover{border-color:var(--accent);background:#151515;}
-.bp-lp .card.featured{border-color:var(--accent);}
-.bp-lp .card .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:14px;}
-.bp-lp .card.featured .tag{color:var(--accent);font-weight:800;}
-.bp-lp .card .name{font-family:Georgia,serif;text-transform:uppercase;font-size:28px;line-height:1.05;color:var(--white);font-weight:700;}
-.bp-lp .card .role{color:var(--accent);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:700;margin-top:9px;}
-.bp-lp .card .pitch{color:var(--muted);font-size:14.5px;margin-top:14px;min-height:74px;}
-.bp-lp .card .price{margin:18px 0 0;font-family:Georgia,serif;font-size:23px;color:var(--white);font-weight:700;}
-.bp-lp .card .price small{font-size:13px;color:var(--dim);font-family:Arial,sans-serif;font-weight:400;}
-.bp-lp .card .price-alt{color:var(--muted);font-size:13px;margin-top:5px;}
-.bp-lp .card .price-alt b{color:var(--text);}
-.bp-lp .card .rule{height:1px;background:var(--line);margin:20px 0;}
-.bp-lp .card ul{list-style:none;display:flex;flex-direction:column;gap:13px;flex:1;}
-.bp-lp .card ul li{position:relative;padding-left:26px;font-size:14px;color:#d8d8d8;}
-.bp-lp .card ul li b{color:var(--white);}
-.bp-lp .card ul li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;background:var(--accent);transform:rotate(45deg);}
-.bp-lp .stripe-wrap{margin-top:24px;}
-.bp-lp .card .go{margin-top:14px;display:block;text-align:center;text-decoration:none;text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;padding:15px;border:1px solid var(--accent);color:var(--accent);}
-.bp-lp .card .go:hover{background:var(--accent);color:#fff;}
-.bp-lp .card.featured .go{background:var(--accent);color:#fff;}
-.bp-lp .card.featured .go:hover{background:var(--accent-soft);}
-.bp-lp .invite{margin-top:34px;text-align:center;color:var(--dim);font-size:14px;padding-top:26px;border-top:1px solid var(--line);}
-.bp-lp .invite b{color:var(--muted);}
-
-  /* MATRIX */
-.bp-lp .table-scroll{overflow-x:auto;border:1px solid var(--line);margin-top:44px;}
-.bp-lp table{border-collapse:collapse;width:100%;min-width:780px;}
-.bp-lp th, .bp-lp td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:top;}
-.bp-lp thead th{background:#141414;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.06em;color:var(--white);font-size:16px;}
-.bp-lp thead th .p{display:block;color:var(--accent);font-size:11px;font-weight:700;margin-top:5px;font-family:Arial,sans-serif;letter-spacing:.04em;}
-.bp-lp thead th.mid{background:#1c0d0f;}
-.bp-lp td.rowlabel{color:var(--muted);font-weight:600;width:21%;}
-.bp-lp td.mid{background:rgba(217,35,50,.06);}
-.bp-lp td.yes b{color:var(--accent);}
-.bp-lp td.no{color:var(--dim);}
-.bp-lp tbody tr:last-child td{border-bottom:none;}
-.bp-lp tbody tr.price-row td{font-weight:700;color:var(--white);background:#141414;}
-
-  /* NUMBERED METHOD ROWS */
-.bp-lp .rows{margin-top:44px;border-top:1px solid var(--accent);}
-.bp-lp .row{display:grid;grid-template-columns:110px 1fr 1.15fr;gap:24px;padding:30px 0;border-bottom:1px solid var(--line);align-items:start;}
-.bp-lp .row .num{font-family:Georgia,serif;font-size:44px;color:#2a2a2a;font-weight:700;line-height:1;}
-.bp-lp .row h4{font-family:Georgia,serif;font-size:24px;color:var(--white);text-transform:uppercase;letter-spacing:.02em;}
-.bp-lp .row .sub{color:var(--accent);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-top:6px;}
-.bp-lp .row p{color:var(--muted);font-size:15px;}
-  @media(max-width:780px){
-.bp-lp .row{grid-template-columns:64px 1fr;gap:16px;}
-.bp-lp .row .num{font-size:30px;}
-.bp-lp .row p{grid-column:2;margin-top:-8px;}
-  }
-.bp-lp .frameworks{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px;}
-.bp-lp .frameworks span{border:1px solid var(--line);padding:9px 17px;font-size:13px;color:#d0d0d0;}
-.bp-lp .frameworks span b{color:var(--accent);}
-
-  /* STATEMENT BREAK */
-.bp-lp .statement{
-    text-align:center;padding:110px 32px;
-    background:linear-gradient(180deg,#0f0709,#050505);
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  }
-.bp-lp .statement h2{font-size:clamp(30px,4.4vw,56px);max-width:20ch;margin:0 auto;}
-.bp-lp .statement .btn{margin-top:40px;}
-.bp-lp .statement .under{margin-top:26px;color:var(--dim);font-size:12px;letter-spacing:.18em;text-transform:uppercase;}
-
-  /* RESULTS */
-.bp-lp .resnums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:44px;background:var(--line);border:1px solid var(--line);}
-  @media(max-width:700px){
-.bp-lp .resnums{grid-template-columns:1fr;}}
-.bp-lp .resnum{background:var(--bg);padding:34px 24px;text-align:center;}
-.bp-lp .resnum .big{font-family:Georgia,serif;font-size:42px;color:var(--accent);font-weight:700;line-height:1;}
-.bp-lp .resnum .lbl{color:var(--muted);font-size:13.5px;margin-top:10px;}
-.bp-lp .ba{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px;}
-  @media(max-width:800px){
-.bp-lp .ba{grid-template-columns:repeat(2,1fr);}}
-.bp-lp .ba .slot{aspect-ratio:3/4;background:linear-gradient(160deg,#171012,#0a0a0a);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:10px;}
-
-  /* QUALIFIER */
-.bp-lp .qual{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
-  @media(max-width:860px){
-.bp-lp .qual{grid-template-columns:1fr;gap:32px;}}
-.bp-lp .qual ul{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:13px;}
-.bp-lp .qual ul li{position:relative;padding-left:28px;color:#d4d4d4;font-size:15px;}
-.bp-lp .qual .yes li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;background:var(--accent);transform:rotate(45deg);}
-.bp-lp .qual .no li::before{content:"\00d7";position:absolute;left:0;top:-3px;color:var(--dim);font-size:19px;font-weight:700;}
-.bp-lp .qual .no li{color:var(--muted);}
-.bp-lp .qual h3{font-family:Georgia,serif;font-size:24px;color:var(--white);}
-.bp-lp .qual .no h3{color:var(--muted);}
-
-  /* CLOSE */
-.bp-lp .close{text-align:center;padding:120px 32px 130px;background:radial-gradient(1000px 500px at 50% 110%,rgba(217,35,50,.20),transparent);}
-.bp-lp .close h2{font-size:clamp(30px,4.6vw,58px);max-width:19ch;margin:0 auto;}
-.bp-lp .close p{margin:28px auto 0;color:var(--muted);max-width:56ch;font-size:17px;}
-.bp-lp .close .scarce{margin-top:26px;color:var(--accent);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;}
-.bp-lp .close .btn{margin-top:32px;}
-.bp-lp .close .formnote{margin-top:22px;color:var(--dim);font-size:11px;letter-spacing:.16em;text-transform:uppercase;}
-.bp-lp footer{border-top:1px solid var(--line);padding:40px 32px;text-align:center;color:var(--dim);font-size:13px;}
-.bp-lp footer .promise{color:var(--text);font-family:Georgia,serif;font-size:16px;font-style:italic;margin-bottom:12px;}
-
-/* add css  */
-.hero .art {
-    width: 100%;
-    height: 600px; /* apni zarurat ke hisab se */
-    overflow: hidden;
+.bp-lp {
+    --accent: #D92332;
+    --accent-soft: #f03544;
+    --bg: #050505;
+    --bg2: #0b0b0b;
+    --card: #111111;
+    --line: #282828;
+    --text: #f2f2f2;
+    --muted: #a5a5a5;
+    --dim: #6b6b6b;
+    --white: #ffffff;
 }
 
-.hero .art img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+/* .bp-lp * {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+} */
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
-*
 
-{margin: 0px;
-padding: 0px;}
+.bp-lp {
+    scroll-behavior: smooth;
+    background: var(--bg);
+}
 
-/* [ Image. Suit, mirror, or gym at 5am. Moody, high contrast ] */
-/* GAP Section Image */
-#gap .art {
-    width: 100%;
+.bp-lp {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+}
+
+.bp-lp .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.bp-lp .narrow {
+    max-width: 920px;
+}
+
+/* TYPE */
+.bp-lp .display {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    letter-spacing: -.5px;
+    line-height: 1.06;
+    color: var(--white);
+}
+
+.bp-lp .display em {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.bp-lp .chapter {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.bp-lp .chapter .bar {
+    width: 46px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.bp-lp .chapter .lbl {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+}
+
+.bp-lp .lede {
+    color: var(--muted);
+    font-size: clamp(15px, 1.7vw, 18px);
+}
+
+/* NAV */
+.bp-lp nav {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: rgba(5, 5, 5, .92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+
+.bp-lp nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+}
+
+.bp-lp nav .logo {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--white);
+}
+
+.bp-lp nav .logo span {
+    color: var(--accent);
+}
+
+.bp-lp nav .links {
+    display: flex;
+    gap: 28px;
     align-items: center;
 }
 
-#gap .art img {
+.bp-lp nav .links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.bp-lp nav .links a:hover {
+    color: var(--white);
+}
+
+.bp-lp nav .navcta {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 22px;
+    font-weight: 800;
+}
+
+.bp-lp nav .navcta:hover {
+    background: var(--accent);
+    color: #fff !important;
+}
+
+@media(max-width:860px) {
+    .bp-lp nav .links a:not(.navcta) {
+        display: none;
+    }
+}
+
+.bp-lp .btn {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 18px 36px;
+    background: var(--accent);
+    color: #fff;
+    transition: background .15s ease;
+}
+
+.bp-lp .btn:hover {
+    background: var(--accent-soft);
+}
+
+.bp-lp .btn.ghost {
+    background: transparent;
+    color: var(--white);
+    border-bottom: 1px solid var(--accent);
+    padding: 8px 2px;
+    letter-spacing: .1em;
+}
+
+/* HERO */
+.bp-lp .hero {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    min-height: 88vh;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.bp-lp .hero .copy {
+    padding: 80px 32px 80px 0;
+}
+
+.bp-lp .hero .copy-inner {
+    max-width: 620px;
+    margin-left: auto;
+    padding-left: 32px;
+}
+
+.bp-lp .hero .kick {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.bp-lp .hero h1 {
+    font-size: clamp(38px, 5.4vw, 74px);
+    margin: 22px 0 0;
+}
+
+.bp-lp .hero p {
+    margin-top: 26px;
+    color: var(--muted);
+    font-size: clamp(16px, 1.8vw, 19px);
+    max-width: 52ch;
+}
+
+.bp-lp .hero .actions {
+    margin-top: 38px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.bp-lp .hero .fineprint {
+    margin-top: 26px;
+    color: var(--dim);
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* HERO IMAGE */
+.bp-lp .hero .art {
+    align-self: stretch;
+    min-height: 88vh;
+    border-left: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+.bp-lp .hero .art img {
     width: 100%;
-    max-width: 650px;
-    height: 520px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 16px;
+    object-position: center;
     display: block;
 }
 
-/* Tablet */
-@media (max-width: 992px) {
-    #gap .art img {
-        height: 450px;
-    }
-}
-
 /* Mobile */
-@media (max-width: 768px) {
-    #gap .art {
-        margin-top: 30px;
+@media (max-width: 900px) {
+    .bp-lp .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        margin: 10px;
     }
 
-    #gap .art img {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-        border-radius: 12px;
+    .bp-lp .hero .copy {
+        padding: 64px 0 48px;
+    }
+
+    .bp-lp .hero .copy-inner {
+        margin: 0;
+        padding-left: 0;
+    }
+
+    .bp-lp .hero .art {
+        min-height: 340px;
+        border-left: none;
+        border-top: 1px solid var(--line);
+        order: 2;
     }
 }
 
-
-/* =========================
-   II / THE OPERATOR IMAGE
-========================= */
-
-#operator .art{
-    width:100%;
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    background:#0d0909;
+/* PRESS */
+.bp-lp .press {
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg2);
 }
 
-#operator .art img{
-    width:100%;
-    height:100%;
-    min-height:700px;
-    object-fit:cover;
-    display:block;
+.bp-lp .press .label {
+    text-align: center;
+    color: var(--dim);
+    font-size: 11px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
 }
 
-/* Tablet */
-@media (max-width:991px){
-
-    #operator .art img{
-        min-height:500px;
-    }
-
+.bp-lp .press .marks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 18px 40px;
 }
 
-/* Mobile */
-@media (max-width:767px){
-
-    #operator .art{
-        margin-top:40px;
-    }
-
-    #operator .art img{
-        min-height:auto;
-        height:450px;
-        width:100%;
-        object-fit:cover;
-    }
-
-}
-/* ==========================
-   II / THE OPERATOR SECTION
-========================== */
-
-.split.rev{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:60px;
-    padding:80px 0;
+.bp-lp .press .marks span {
+    color: #8a8a8a;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    white-space: nowrap;
 }
 
-.split.rev .copy{
-    padding:0 50px;
+.bp-lp section.pad {
+    padding: 96px 0;
 }
 
-.split.rev .art{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    background:#111;
+.bp-lp .bg2 {
+    background: var(--bg2);
 }
 
-.split.rev .art img{
-    width:100%;
-    height:700px;
-    object-fit:cover;
-    display:block;
+.bp-lp .bordered {
+    border-bottom: 1px solid var(--line);
 }
 
-/* ==========================
-   Tablet
-========================== */
+/* SPLIT SECTION */
 
-@media (max-width:992px){
-
-    .split.rev{
-        grid-template-columns:1fr;
-        gap:40px;
-        padding:60px 20px;
-    }
-
-    .split.rev .copy{
-        padding:0;
-        order:1;
-    }
-
-    .split.rev .art{
-        order:2;
-    }
-
-    .split.rev .art img{
-        width:100%;
-        height:auto;
-        max-height:600px;
-        object-fit:contain;
-    }
-
+.bp-lp .art {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
-/* ==========================
-   Mobile
-========================== */
-
-@media (max-width:768px){
-
-    .split.rev{
-        grid-template-columns:1fr;
-        gap:30px;
-        padding:40px 15px;
-    }
-
-    .split.rev .copy{
-        order:1;
-        padding:0;
-    }
-
-    .split.rev .art{
-        order:2;
-        width:100%;
-        padding:0;
-        background:#111;
-    }
-
-    .split.rev .art img{
-        width:100%;
-        height:auto;
-        max-height:none;
-        object-fit:contain;
-        display:block;
-    }
-
+.bp-lp .art img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 20px;
 }
 
-/* ==========================
-   Small Mobile
-========================== */
 
-@media (max-width:480px){
+/*  */
+.bp-lp .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
 
-    .split.rev{
-        padding:30px 10px;
+.bp-lp .split .art {
+    min-height: 520px;
+    align-self: stretch;
+    background: linear-gradient(150deg, #1a0d0f, #090909 65%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dim);
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+}
+
+.bp-lp .split .copy {
+    padding: 72px 56px;
+}
+
+.bp-lp .split.rev .copy {
+    order: -1;
+}
+
+.bp-lp .split h2 {
+    font-size: clamp(28px, 3.6vw, 46px);
+}
+
+.bp-lp .split p {
+    margin-top: 18px;
+    color: #cfcfcf;
+}
+
+.bp-lp .split p.sig {
+    margin-top: 24px;
+    color: var(--accent);
+    font-style: italic;
+    font-family: Georgia, serif;
+    font-size: 17px;
+}
+
+@media(max-width:900px) {
+    .bp-lp .split {
+        grid-template-columns: 1fr;
     }
 
-    .split.rev .copy{
-        padding:0;
+    .bp-lp .split .copy {
+        padding: 56px 32px;
     }
 
-    .split.rev .art img{
-        width:100%;
-        height:auto;
-        object-fit:contain;
+    .bp-lp .split.rev .copy {
+        order: 0;
     }
 
+    .bp-lp .split .art {
+        min-height: 300px;
+    }
+}
+
+/* LADDER */
+.bp-lp .ladder {
+    display: flex;
+    align-items: stretch;
+    margin-top: 46px;
+}
+
+.bp-lp .ladder .card {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.bp-lp .arrow {
+    flex: 0 0 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+}
+
+.bp-lp .arrow svg {
+    width: 28px;
+    height: 28px;
+}
+
+@media(max-width:960px) {
+    .bp-lp .ladder {
+        flex-direction: column;
+        max-width: 470px;
+        margin: 46px auto 0;
+    }
+
+    .bp-lp .arrow {
+        flex: 0 0 auto;
+        height: 52px;
+        transform: rotate(90deg);
+    }
+}
+
+.bp-lp .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 30px 26px 32px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color .18s ease, background .18s ease;
+}
+
+.bp-lp .card:hover {
+    border-color: var(--accent);
+    background: #151515;
+}
+
+.bp-lp .card.featured {
+    border-color: var(--accent);
+}
+
+.bp-lp .card .tag {
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 14px;
+}
+
+.bp-lp .card.featured .tag {
+    color: var(--accent);
+    font-weight: 800;
+}
+
+.bp-lp .card .name {
+    font-family: Georgia, serif;
+    text-transform: uppercase;
+    font-size: 28px;
+    line-height: 1.05;
+    color: var(--white);
+    font-weight: 700;
+}
+
+.bp-lp .card .role {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 9px;
+}
+
+.bp-lp .card .pitch {
+    color: var(--muted);
+    font-size: 14.5px;
+    margin-top: 14px;
+    min-height: 74px;
+}
+
+.bp-lp .card .price {
+    margin: 18px 0 0;
+    font-family: Georgia, serif;
+    font-size: 23px;
+    color: var(--white);
+    font-weight: 700;
+}
+
+.bp-lp .card .price small {
+    font-size: 13px;
+    color: var(--dim);
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+}
+
+.bp-lp .card .price-alt {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.bp-lp .card .price-alt b {
+    color: var(--text);
+}
+
+.bp-lp .card .rule {
+    height: 1px;
+    background: var(--line);
+    margin: 20px 0;
+}
+
+.bp-lp .card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    flex: 1;
+}
+
+.bp-lp .card ul li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 14px;
+    color: #d8d8d8;
+}
+
+.bp-lp .card ul li b {
+    color: var(--white);
+}
+
+.bp-lp .card ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    transform: rotate(45deg);
+}
+
+.bp-lp .stripe-wrap {
+    margin-top: 24px;
+}
+
+.bp-lp .card .go {
+    margin-top: 14px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 15px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.bp-lp .card .go:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.bp-lp .card.featured .go {
+    background: var(--accent);
+    color: #fff;
+}
+
+.bp-lp .card.featured .go:hover {
+    background: var(--accent-soft);
+}
+
+.bp-lp .invite {
+    margin-top: 34px;
+    text-align: center;
+    color: var(--dim);
+    font-size: 14px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+}
+
+.bp-lp .invite b {
+    color: var(--muted);
+}
+
+/* MATRIX */
+.bp-lp .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    margin-top: 44px;
+}
+
+.bp-lp table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 780px;
+}
+
+.bp-lp th,
+.bp-lp td {
+    padding: 15px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    font-size: 13.5px;
+    vertical-align: top;
+}
+
+.bp-lp thead th {
+    background: #141414;
+    font-family: Georgia, serif;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--white);
+    font-size: 16px;
+}
+
+.bp-lp thead th .p {
+    display: block;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 5px;
+    font-family: Arial, sans-serif;
+    letter-spacing: .04em;
+}
+
+.bp-lp thead th.mid {
+    background: #1c0d0f;
+}
+
+.bp-lp td.rowlabel {
+    color: var(--muted);
+    font-weight: 600;
+    width: 21%;
+}
+
+.bp-lp td.mid {
+    background: rgba(217, 35, 50, .06);
+}
+
+.bp-lp td.yes b {
+    color: var(--accent);
+}
+
+.bp-lp td.no {
+    color: var(--dim);
+}
+
+.bp-lp tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.bp-lp tbody tr.price-row td {
+    font-weight: 700;
+    color: var(--white);
+    background: #141414;
+}
+
+/* NUMBERED METHOD ROWS */
+.bp-lp .rows {
+    margin-top: 44px;
+    border-top: 1px solid var(--accent);
+}
+
+.bp-lp .row {
+    display: grid;
+    grid-template-columns: 110px 1fr 1.15fr;
+    gap: 24px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+}
+
+.bp-lp .row .num {
+    font-family: Georgia, serif;
+    font-size: 44px;
+    color: #2a2a2a;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.bp-lp .row h4 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: .02em;
+}
+
+.bp-lp .row .sub {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.bp-lp .row p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+@media(max-width:780px) {
+    .bp-lp .row {
+        grid-template-columns: 64px 1fr;
+        gap: 16px;
+    }
+
+    .bp-lp .row .num {
+        font-size: 30px;
+    }
+
+    .bp-lp .row p {
+        grid-column: 2;
+        margin-top: -8px;
+    }
+}
+
+.bp-lp .frameworks {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.bp-lp .frameworks span {
+    border: 1px solid var(--line);
+    padding: 9px 17px;
+    font-size: 13px;
+    color: #d0d0d0;
+    
+}
+
+.bp-lp .frameworks span b {
+    color: var(--accent);
+}
+
+/* STATEMENT BREAK */
+.bp-lp .statement {
+    text-align: center;
+    padding: 110px 32px;
+    background: linear-gradient(180deg, #0f0709, #050505);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.bp-lp .statement h2 {
+    font-size: clamp(30px, 4.4vw, 56px);
+    max-width: 20ch;
+    margin: 0 auto;
+}
+
+.bp-lp .statement .btn {
+    margin-top: 40px;
+}
+
+.bp-lp .statement .under {
+    margin-top: 26px;
+    color: var(--dim);
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+/* RESULTS */
+.bp-lp .resnums {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 44px;
+    background: var(--line);
+    border: 1px solid var(--line);
+}
+
+@media(max-width:700px) {
+    .bp-lp .resnums {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bp-lp .resnum {
+    background: var(--bg);
+    padding: 34px 24px;
+    text-align: center;
+}
+
+.bp-lp .resnum .big {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    color: var(--accent);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.bp-lp .resnum .lbl {
+    color: var(--muted);
+    font-size: 13.5px;
+    margin-top: 10px;
+}
+
+.bp-lp .ba {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 26px;
+}
+
+@media(max-width:800px) {
+    .bp-lp .ba {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.bp-lp .ba .slot {
+    aspect-ratio: 3/4;
+    background: linear-gradient(160deg, #171012, #0a0a0a);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dim);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+}
+
+/* QUALIFIER */
+.bp-lp .qual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+}
+
+@media(max-width:860px) {
+    .bp-lp .qual {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+.bp-lp .qual ul {
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.bp-lp .qual ul li {
+    position: relative;
+    padding-left: 28px;
+    color: #d4d4d4;
+    font-size: 15px;
+}
+
+.bp-lp .qual .yes li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 9px;
+    height: 9px;
+    background: var(--accent);
+    transform: rotate(45deg);
+}
+
+.bp-lp .qual .no li::before {
+    content: "\00d7";
+    position: absolute;
+    left: 0;
+    top: -3px;
+    color: var(--dim);
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.bp-lp .qual .no li {
+    color: var(--muted);
+}
+
+.bp-lp .qual h3 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--white);
+}
+
+.bp-lp .qual .no h3 {
+    color: var(--muted);
+}
+/* add  */
+.bp-lp .ba .slot {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: #111;
+    border: 1px solid var(--line);
+    position: relative;
+}
+
+.bp-lp .ba .slot img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .4s ease;
+}
+
+/* Hover effect */
+.bp-lp .ba .slot:hover img {
+    transform: scale(1.05);
+}
+/* CLOSE */
+.bp-lp .close {
+    text-align: center;
+    padding: 120px 32px 130px;
+    background: radial-gradient(1000px 500px at 50% 110%, rgba(217, 35, 50, .20), transparent);
+}
+
+.bp-lp .close h2 {
+    font-size: clamp(30px, 4.6vw, 58px);
+    max-width: 19ch;
+    margin: 0 auto;
+}
+
+.bp-lp .close p {
+    margin: 28px auto 0;
+    color: var(--muted);
+    max-width: 56ch;
+    font-size: 17px;
+}
+
+.bp-lp .close .scarce {
+    margin-top: 26px;
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.bp-lp .close .btn {
+    margin-top: 32px;
+}
+
+.bp-lp .close .formnote {
+    margin-top: 22px;
+    color: var(--dim);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.bp-lp footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 32px;
+    text-align: center;
+    color: var(--dim);
+    font-size: 13px;
+}
+
+.bp-lp footer .promise {
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 12px;
 }
 </style>
 </head>
 <body>
-  
 <div class="bp-lp">
-<nav><div class="wrap">
-  <div class="logo">Bach<span>.</span>Performance</div>
-  <div class="links">
-    <a href="#gap">The Gap</a>
-    <a href="#programs">Programs</a>
-    <a href="#method">The Method</a>
-    <a href="#results">Results</a>
-    <a href="https://apps.bachperformance.com/getrippedrow" class="navcta">Apply</a>
-  </div>
-</div></nav>
-
-<!-- HERO -->
-<header class="hero">
-  <div class="copy"><div class="copy-inner">
-    <div class="kick">For the man who runs everything except himself</div>
-    <h1 class="display">Get the athlete's body back. <em>Without living in the gym.</em></h1>
-    <p>You are not lazy. Every plan you have tried was built for a 22-year-old with no job and no kids. We build yours around your labs, your calendar, and the life you actually live.</p>
-    <div class="actions">
-      <a href="https://apps.bachperformance.com/getrippedrow" class="btn">Apply now</a>
-      <a href="#programs" class="btn ghost">See the programs</a>
-    </div>
-    <div class="fineprint">By application. Limited roster.</div>
-  </div></div>
-  <div class="art"> <img src="../Programs/ass/Hero image. Eric, or a client, shot dark on black.png" alt="Eric training" class="hero-image"></div>
-</header>
-
-<!-- PRESS -->
-<div class="press"><div class="wrap">
-  <div class="label">As Seen In</div>
-  <div class="marks">
-    <span>CNN</span><span>Yahoo Health</span><span>Arnold Schwarzenegger</span><span>T-Nation</span>
-    <span>elitefts</span><span>Huffington Post</span><span>Lifehacker</span><span>Bodybuilding.com</span>
-  </div>
-</div></div>
-
-<!-- I / THE GAP -->
-<section class="split bordered" id="gap">
-  <div class="copy">
-    <div class="chapter"><span class="bar"></span><span class="lbl">I / The Gap</span></div>
-    <h2 class="display">You were the athlete in the room. <em>Now you dodge the mirror.</em></h2>
-    <p>The suit still fits in the shoulders and fights you at the waist. Mornings cost more than they used to. You know exactly what to do. You just have not done it in years.</p>
-    <p>Every plan works for three weeks. Then a travel week, a launch, a sick kid, and it is gone. You are not short on information. You have read all of it.</p>
-    <p>You are short on a standard, and a system that survives a real calendar.</p>
-  </div>
-   <div class="art">
-    <img src="../Programs/ass/Image. Suit, mirror, or gym at 5am. Moody, high contrast.jpg" alt="Suit mirror gym at 5am">
-  </div>
-</section>
-
-<!-- II / THE OPERATOR -->
-<section class="split rev bordered">
-  <div class="copy">
-    <div class="chapter"><span class="bar"></span><span class="lbl">II / The Operator</span></div>
-    <h2 class="display">I am not another plan. <em>I am the standard you have been missing.</em></h2>
-    <p>I have coached since 2009 and online since 2012. More than 3,000 clients. Athletes across the NFL, NBA, and NHL. Over 300 articles in T-Nation, Men's Health, and CNN.</p>
-    <p>The men I work with run companies, families, and a travel schedule that would wreck most coaches' programming by Wednesday. They do not have a discipline problem. They have a decision problem. Too many inputs, no system, nobody holding the line.</p>
-    <p>That is the job. I remove the decisions, run your training and nutrition off your data, and hold the standard when you do not feel like holding it.</p>
-    <p class="sig">Eric Bach, Founder. Mount Pleasant, SC.</p>
-  </div>
-   <div class="art">
-        <img src="../Programs/ass/2B34D0C7-A363-4140-A577-9DEE8F4F35E3.jpg" alt="Eric Bach Portrait">
-    </div>
-</section>
-
-<!-- PROGRAMS -->
-<section class="pad" id="programs"><div class="wrap">
-  <div class="chapter"><span class="bar"></span><span class="lbl">The Programs</span></div>
-  <h2 class="display" style="font-size:clamp(30px,4vw,48px);max-width:18ch;">Start where you are. <em>Climb when you are ready.</em></h2>
-  <p class="lede" style="margin-top:16px;max-width:64ch;">One system, three levels of support. Every level runs on the same standard. What changes is how much of it gets built around you.</p>
-
-  <div class="ladder">
-
-    <div class="card">
-      <div class="tag">The Blueprint</div>
-      <div class="name">Look Great<br>Naked</div>
-      <div class="role">Self-Guided</div>
-      <p class="pitch">The 30-day system, start to finish. You run it yourself, on your own schedule.</p>
-      <div class="price">$97 <small>one time</small></div>
-      <div class="price-alt">Regularly $197</div>
-      <div class="rule"></div>
-      <ul>
-        <li>The <b>30-day training program.</b> 4 days a week, 45 to 60 minutes.</li>
-        <li>The <b>nutrition guide.</b> Meal templates for family dinners and business dinners.</li>
-        <li>The <b>Mindset and Lifestyle System.</b> Habits, daily steps, sleep and recovery.</li>
-        <li><b>Private community access</b> included.</li>
-        <li>Bonus: Fat Loss Checklist and the No BS Supplement Guide.</li>
-        <li>Drop 7 to 9 pounds in 30 days. Yours to keep for good.</li>
-      </ul>
-      <a class="go" href="https://apps.bachperformance.com/lookgreatnaked">Get the blueprint</a>
-    </div>
-
-    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></div>
-
-    <div class="card">
-      <div class="tag">Group Coaching</div>
-      <div class="name">Revival</div>
-      <div class="role">Coached, Month To Month</div>
-      <p class="pitch">The same system that powers Prime, scaled to your budget. You stop running it alone.</p>
-      <div class="price">$297 <small>/ month</small></div>
-      <div class="price-alt">Month to month</div>
-      <div class="rule"></div>
-      <ul>
-        <li>The <b>same system</b> that runs Prime, without the 1:1 investment.</li>
-        <li><b>Time-tested Bach Performance meal plans</b> built around your life.</li>
-        <li>A <b>monthly training plan</b> in the app, built for a full schedule.</li>
-        <li>The <b>AI meal analyzer.</b> Feedback on your food without a custom macro build.</li>
-        <li><b>Written check-ins and 24/7 coaching support.</b></li>
-        <li>Private community access. <b>84-point blood panel available for purchase.</b></li>
-      </ul>
-      <div class="stripe-wrap">
-        <stripe-buy-button
-          buy-button-id="buy_btn_1TvKmCJsaUzX3BBFFrB55A0a"
-          publishable-key="pk_live_XHXYhevZsFrQLSzZzioOhckg">
-        </stripe-buy-button>
+    <nav>
+      <div class="wrap">
+        <div class="logo">Bach<span>.</span>Performance</div>
+        <div class="links">
+          <a href="#gap">The Gap</a>
+          <a href="#programs">Programs</a>
+          <a href="#method">The Method</a>
+          <a href="#results">Results</a>
+          <a href="https://apps.bachperformance.com/getrippedrow" class="navcta">Apply</a>
+        </div>
       </div>
-      <a class="go" href="https://buy.stripe.com/dRm8wQ0cl71681OgBVfEl1S">Join Revival</a>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="copy">
+        <div class="copy-inner">
+          <div class="kick">For the man who runs everything except himself</div>
+          <h1 class="display">Get the athlete's body back. <em>Without living in the gym.</em></h1>
+          <p>You are not lazy. Every plan you have tried was built for a 22-year-old with no job and no kids. We build
+            yours around your labs, your calendar, and the life you actually live.</p>
+          <div class="actions">
+            <a href="https://apps.bachperformance.com/getrippedrow" class="btn">Apply now</a>
+            <a href="#programs" class="btn ghost">See the programs</a>
+          </div>
+          <div class="fineprint">By application. Limited roster.</div>
+        </div>
+      </div>
+      <div class="art">
+        <img src="./ass/Hero image. Eric, or a client, shot dark on black.png" alt="Hero Image">
+      </div>
+    </header>
+
+    <!-- PRESS -->
+    <div class="press">
+      <div class="wrap">
+        <div class="label">As Seen In</div>
+        <div class="marks">
+          <span>CNN</span><span>Yahoo Health</span><span>Arnold Schwarzenegger</span><span>T-Nation</span>
+          <span>elitefts</span><span>Huffington Post</span><span>Lifehacker</span><span>Bodybuilding.com</span>
+        </div>
+      </div>
     </div>
 
-    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></div>
+    <!-- I / THE GAP -->
+    <section class="split bordered" id="gap">
+      <div class="copy">
+        <div class="chapter"><span class="bar"></span><span class="lbl">I / The Gap</span></div>
+        <h2 class="display">You were the athlete in the room. <em>Now you dodge the mirror.</em></h2>
+        <p>The suit still fits in the shoulders and fights you at the waist. Mornings cost more than they used to. You
+          know exactly what to do. You just have not done it in years.</p>
+        <p>Every plan works for three weeks. Then a travel week, a launch, a sick kid, and it is gone. You are not short
+          on information. You have read all of it.</p>
+        <p>You are short on a standard, and a system that survives a real calendar.</p>
+      </div>
+     <div class="art">
+        <img src="./ass/Image. Suit, mirror, or gym at 5am. Moody, high contrast.jpg" alt="Hero Image">
+      </div>
+    </section>
 
-    <div class="card featured">
-      <div class="tag">Most Popular</div>
-      <div class="name">Prime</div>
-      <div class="role">1:1 Coaching</div>
-      <p class="pitch">Full customization. Your labs, your program, your macros, your coach. This is the flagship.</p>
-      <div class="price">By application</div>
-      <div class="price-alt">Limited roster. We review every applicant.</div>
-      <div class="rule"></div>
-      <ul>
-        <li><b>Private 1:1 coaching.</b> Program and macros built from scratch, not adapted from a template.</li>
-        <li>The <b>84-point blood panel</b>, once every six months. We read the data so you stop guessing.</li>
-        <li><b>Custom nutrition</b> re-dialed off every panel as your body changes.</li>
-        <li><b>24/7 coaching support</b>, monthly 1:1 calls, and Loom video breakdowns.</li>
-        <li><b>Data-driven analytics and progress reports</b> so you always know where you stand.</li>
-      </ul>
-      <a class="go" href="https://apps.bachperformance.com/getrippedrow">Apply for Prime</a>
-    </div>
-
-  </div>
-
-  <p class="invite"><b>Platinum Concierge</b> exists for a small number of clients who want weekly calls with Eric and full concierge support. By invitation only.</p>
-
-  <div class="table-scroll">
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Look Great Naked<span class="p">$97 one time</span></th>
-          <th>Revival<span class="p">$297 / month</span></th>
-          <th class="mid">Prime<span class="p">By application</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td class="rowlabel">Format</td><td>Self-guided program</td><td>Group coaching</td><td class="mid">Private 1:1</td></tr>
-        <tr><td class="rowlabel">Customization</td><td class="no">None. Fixed program.</td><td>Minimal. Template based.</td><td class="mid yes"><b>Full. Built from scratch.</b></td></tr>
-        <tr><td class="rowlabel">Training</td><td>30-day program, 4 days a week</td><td>Monthly plan in the app</td><td class="mid">Custom-built for you</td></tr>
-        <tr><td class="rowlabel">Nutrition</td><td>Guide and templates</td><td>Bach Performance meal plans plus AI meal analyzer</td><td class="mid">Custom macros, re-dialed off labs</td></tr>
-        <tr><td class="rowlabel">84-point blood panel</td><td class="no">Not included</td><td>Available for purchase</td><td class="mid yes"><b>1x every 6 months</b></td></tr>
-        <tr><td class="rowlabel">Coach contact</td><td>In the community</td><td>Written check-ins, 24/7 coaching support</td><td class="mid yes"><b>24/7 support, monthly calls, Loom videos, progress reports</b></td></tr>
-        <tr><td class="rowlabel">Private community</td><td>Included</td><td>Included</td><td class="mid">Included</td></tr>
-        <tr><td class="rowlabel">Best for</td><td>The guy who wants to start today on his own</td><td>The self-starter who needs a standard and a room</td><td class="mid">The one who wants it built around him</td></tr>
-        <tr><td class="rowlabel">Commitment</td><td>One time</td><td>Month to month</td><td class="mid">By application</td></tr>
-        <tr class="price-row"><td class="rowlabel">Investment</td><td>$97 one time</td><td>$297 / month</td><td class="mid">By application</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div></section>
-
-<!-- III / THE METHOD -->
-<section class="pad bg2" id="method"><div class="wrap">
-  <div class="chapter"><span class="bar"></span><span class="lbl">III / The Method</span></div>
-  <h2 class="display" style="font-size:clamp(30px,4vw,48px);">The Bach Performance System.</h2>
-  <p class="lede" style="margin-top:14px;max-width:60ch;">A twelve-month arc, run in four phases. You start with the 90-day Metabolic Reboot and build from there.</p>
-
-  <div class="rows">
-    <div class="row">
-      <div class="num">01</div>
-      <div><h4>Reboot</h4><div class="sub">First 90 days</div></div>
-      <p>Reset the metabolism and the habits. We pull your baseline, run the panel, and go after the one constraint actually holding you back. Fast, visible wins that make everything after this stick.</p>
-    </div>
-    <div class="row">
-      <div class="num">02</div>
-      <div><h4>Priming</h4><div class="sub">Build the engine</div></div>
-      <p>Strength, work capacity, and the base that lets you eat more and stay lean. This is the phase most programs skip, and the reason most people stall at month four.</p>
-    </div>
-    <div class="row">
-      <div class="num">03</div>
-      <div><h4>Power</h4><div class="sub">Add the muscle</div></div>
-      <p>Heavy-Light training built around your schedule. Strength and size where it actually shows, on three to four sessions a week, not six.</p>
-    </div>
-    <div class="row">
-      <div class="num">04</div>
-      <div><h4>Live Lean</h4><div class="sub">Make it the baseline</div></div>
-      <p>Lock it in for good. The body becomes the default, not the project you restart every January. This is the phase almost nobody gets to because almost nobody stays long enough.</p>
-    </div>
-  </div>
-
-  <div class="frameworks">
-    <span><b>4-2-1</b> Fat Loss Protocol</span>
-    <span><b>Insulin Reboot</b> Protocol</span>
-    <span><b>ADE</b> Nutrition System</span>
-    <span><b>Heavy-Light</b> Training</span>
-    <span><b>Metabolism</b> as a Thermostat</span>
-  </div>
-</div></section>
-
-<!-- STATEMENT -->
-<div class="statement">
-  <h2 class="display">We build it around your life. <em>Not the other way around.</em></h2>
-  <a href="https://apps.bachperformance.com/getrippedrow" class="btn">Apply now</a>
-  <div class="under">3 sessions a week &middot; 30 to 60 minutes &middot; Built for a full calendar</div>
+    <!-- II / THE OPERATOR -->
+    <section class="split rev bordered">
+      <div class="copy">
+        <div class="chapter"><span class="bar"></span><span class="lbl">II / The Operator</span></div>
+        <h2 class="display">I am not another plan. <em>I am the standard you have been missing.</em></h2>
+        <p>I have coached since 2009 and online since 2012. More than 3,000 clients. Athletes across the NFL, NBA, and
+          NHL. Over 300 articles in T-Nation, Men's Health, and CNN.</p>
+        <p>The men I work with run companies, families, and a travel schedule that would wreck most coaches' programming
+          by Wednesday. They do not have a discipline problem. They have a decision problem. Too many inputs, no system,
+          nobody holding the line.</p>
+        <p>That is the job. I remove the decisions, run your training and nutrition off your data, and hold the standard
+          when you do not feel like holding it.</p>
+        <p class="sig">Eric Bach, Founder. Mount Pleasant, SC.</p>
+      </div>
+      <div class="art">
+  <img src="./ass/2B34D0C7-A363-4140-A577-9DEE8F4F35E3.jpg" alt="Eric Bach Portrait">
 </div>
+    </section>
 
-<!-- RESULTS -->
-<section class="pad" id="results"><div class="wrap">
-  <div class="chapter"><span class="bar"></span><span class="lbl">Results</span></div>
-  <h2 class="display" style="font-size:clamp(28px,3.6vw,44px);">The standard, not the exception.</h2>
-  <div class="resnums">
-    <div class="resnum"><div class="big">17-21 lbs</div><div class="lbl">Lost in 90 days for men. 11 to 15 for women.</div></div>
-    <div class="resnum"><div class="big">2-3 sizes</div><div class="lbl">Down in pants or dress size</div></div>
-    <div class="resnum"><div class="big">3,000+</div><div class="lbl">Clients coached since 2012</div></div>
-  </div>
-  <p class="lede" style="margin-top:44px;text-align:center;font-size:20px;color:var(--white);font-family:Georgia,serif;">Same job. Same kids. Same calendar. <span style="color:var(--accent);font-style:italic;">They just started.</span></p>
-  <div class="ba">
-    <div class="slot">[ Before / After 01 ]</div>
-    <div class="slot">[ Before / After 02 ]</div>
-    <div class="slot">[ Before / After 03 ]</div>
-    <div class="slot">[ Before / After 04 ]</div>
-  </div>
-</div></section>
+    <!-- PROGRAMS -->
+    <section class="pad" id="programs">
+      <div class="wrap">
+        <div class="chapter"><span class="bar"></span><span class="lbl">The Programs</span></div>
+        <h2 class="display" style="font-size:clamp(30px,4vw,48px);max-width:18ch;">Start where you are. <em>Climb when
+            you are ready.</em></h2>
+        <p class="lede" style="margin-top:16px;max-width:64ch;">One system, three levels of support. Every level runs on
+          the same standard. What changes is how much of it gets built around you.</p>
 
-<!-- IV / THE QUALIFIER -->
-<section class="pad bg2 bordered"><div class="wrap narrow">
-  <div class="chapter"><span class="bar"></span><span class="lbl">IV / The Qualifier</span></div>
-  <h2 class="display" style="font-size:clamp(28px,3.6vw,44px);max-width:20ch;">There is a certain guy <em>this is built for.</em></h2>
-  <div class="qual" style="margin-top:40px;">
-    <div class="yes">
-      <h3>This is you</h3>
-      <ul>
-        <li>You are 35 to 55, and you have built the career and the family.</li>
-        <li>You used to be the athlete and you want that body back.</li>
-        <li>You want the decisions taken off your plate, not more information.</li>
-        <li>You will be honest about your food, your sleep, and your effort.</li>
-        <li>You want fitness to improve your life, not consume it.</li>
-      </ul>
+        <div class="ladder">
+
+          <div class="card">
+            <div class="tag">The Blueprint</div>
+            <div class="name">Look Great<br>Naked</div>
+            <div class="role">Self-Guided</div>
+            <p class="pitch">The 30-day system, start to finish. You run it yourself, on your own schedule.</p>
+            <div class="price">$97 <small>one time</small></div>
+            <div class="price-alt">Regularly $197</div>
+            <div class="rule"></div>
+            <ul>
+              <li>The <b>30-day training program.</b> 4 days a week, 45 to 60 minutes.</li>
+              <li>The <b>nutrition guide.</b> Meal templates for family dinners and business dinners.</li>
+              <li>The <b>Mindset and Lifestyle System.</b> Habits, daily steps, sleep and recovery.</li>
+              <li><b>Private community access</b> included.</li>
+              <li>Bonus: Fat Loss Checklist and the No BS Supplement Guide.</li>
+              <li>Drop 7 to 9 pounds in 30 days. Yours to keep for good.</li>
+            </ul>
+            <a class="go" href="https://apps.bachperformance.com/lookgreatnaked">Get the blueprint</a>
+          </div>
+
+          <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="12" x2="19" y2="12"></line>
+              <polyline points="13 6 19 12 13 18"></polyline>
+            </svg></div>
+
+          <div class="card">
+            <div class="tag">Group Coaching</div>
+            <div class="name">Revival</div>
+            <div class="role">Coached, Month To Month</div>
+            <p class="pitch">The same system that powers Prime, scaled to your budget. You stop running it alone.</p>
+            <div class="price">$297 <small>/ month</small></div>
+            <div class="price-alt">Month to month</div>
+            <div class="rule"></div>
+            <ul>
+              <li>The <b>same system</b> that runs Prime, without the 1:1 investment.</li>
+              <li><b>Time-tested Bach Performance meal plans</b> built around your life.</li>
+              <li>A <b>monthly training plan</b> in the app, built for a full schedule.</li>
+              <li>The <b>AI meal analyzer.</b> Feedback on your food without a custom macro build.</li>
+              <li><b>Written check-ins and 24/7 coaching support.</b></li>
+              <li>Private community access. <b>84-point blood panel available for purchase.</b></li>
+            </ul>
+            <div class="stripe-wrap">
+              <stripe-buy-button buy-button-id="buy_btn_1TvKmCJsaUzX3BBFFrB55A0a"
+                publishable-key="pk_live_XHXYhevZsFrQLSzZzioOhckg">
+              </stripe-buy-button>
+            </div>
+            <a class="go" href="https://buy.stripe.com/dRm8wQ0cl71681OgBVfEl1S">Join Revival</a>
+          </div>
+
+          <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="12" x2="19" y2="12"></line>
+              <polyline points="13 6 19 12 13 18"></polyline>
+            </svg></div>
+
+          <div class="card featured">
+            <div class="tag">Most Popular</div>
+            <div class="name">Prime</div>
+            <div class="role">1:1 Coaching</div>
+            <p class="pitch">Full customization. Your labs, your program, your macros, your coach. This is the flagship.
+            </p>
+            <div class="price">By application</div>
+            <div class="price-alt">Limited roster. We review every applicant.</div>
+            <div class="rule"></div>
+            <ul>
+              <li><b>Private 1:1 coaching.</b> Program and macros built from scratch, not adapted from a template.</li>
+              <li>The <b>84-point blood panel</b>, once every six months. We read the data so you stop guessing.</li>
+              <li><b>Custom nutrition</b> re-dialed off every panel as your body changes.</li>
+              <li><b>24/7 coaching support</b>, monthly 1:1 calls, and Loom video breakdowns.</li>
+              <li><b>Data-driven analytics and progress reports</b> so you always know where you stand.</li>
+            </ul>
+            <a class="go" href="https://apps.bachperformance.com/getrippedrow">Apply for Prime</a>
+          </div>
+
+        </div>
+
+        <p class="invite"><b>Platinum Concierge</b> exists for a small number of clients who want weekly calls with Eric
+          and full concierge support. By invitation only.</p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Look Great Naked<span class="p">$97 one time</span></th>
+                <th>Revival<span class="p">$297 / month</span></th>
+                <th class="mid">Prime<span class="p">By application</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="rowlabel">Format</td>
+                <td>Self-guided program</td>
+                <td>Group coaching</td>
+                <td class="mid">Private 1:1</td>
+              </tr>
+              <tr>
+                <td class="rowlabel">Customization</td>
+                <td class="no">None. Fixed program.</td>
+                <td>Minimal. Template based.</td>
+                <td class="mid yes"><b>Full. Built from scratch.</b></td>
+              </tr>
+              <tr>
+                <td class="rowlabel">Training</td>
+                <td>30-day program, 4 days a week</td>
+                <td>Monthly plan in the app</td>
+                <td class="mid">Custom-built for you</td>
+              </tr>
+              <tr>
+                <td class="rowlabel">Nutrition</td>
+                <td>Guide and templates</td>
+                <td>Bach Performance meal plans plus AI meal analyzer</td>
+                <td class="mid">Custom macros, re-dialed off labs</td>
+              </tr>
+              <tr>
+                <td class="rowlabel">84-point blood panel</td>
+                <td class="no">Not included</td>
+                <td>Available for purchase</td>
+                <td class="mid yes"><b>1x every 6 months</b></td>
+              </tr>
+              <tr>
+                <td class="rowlabel">Coach contact</td>
+                <td>In the community</td>
+                <td>Written check-ins, 24/7 coaching support</td>
+                <td class="mid yes"><b>24/7 support, monthly calls, Loom videos, progress reports</b></td>
+              </tr>
+              <tr>
+                <td class="rowlabel">Private community</td>
+                <td>Included</td>
+                <td>Included</td>
+                <td class="mid">Included</td>
+              </tr>
+              <tr>
+                <td class="rowlabel">Best for</td>
+                <td>The guy who wants to start today on his own</td>
+                <td>The self-starter who needs a standard and a room</td>
+                <td class="mid">The one who wants it built around him</td>
+              </tr>
+              <tr>
+                <td class="rowlabel">Commitment</td>
+                <td>One time</td>
+                <td>Month to month</td>
+                <td class="mid">By application</td>
+              </tr>
+              <tr class="price-row">
+                <td class="rowlabel">Investment</td>
+                <td>$97 one time</td>
+                <td>$297 / month</td>
+                <td class="mid">By application</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- III / THE METHOD -->
+    <section class="pad bg2" id="method">
+      <div class="wrap">
+        <div class="chapter"><span class="bar"></span><span class="lbl">III / The Method</span></div>
+        <h2 class="display" style="font-size:clamp(30px,4vw,48px);">The Bach Performance System.</h2>
+        <p class="lede" style="margin-top:14px;max-width:60ch;">A twelve-month arc, run in four phases. You start with
+          the 90-day Metabolic Reboot and build from there.</p>
+
+        <div class="rows">
+          <div class="row">
+            <div class="num">01</div>
+            <div>
+              <h4>Reboot</h4>
+              <div class="sub">First 90 days</div>
+            </div>
+            <p>Reset the metabolism and the habits. We pull your baseline, run the panel, and go after the one
+              constraint actually holding you back. Fast, visible wins that make everything after this stick.</p>
+          </div>
+          <div class="row">
+            <div class="num">02</div>
+            <div>
+              <h4>Priming</h4>
+              <div class="sub">Build the engine</div>
+            </div>
+            <p>Strength, work capacity, and the base that lets you eat more and stay lean. This is the phase most
+              programs skip, and the reason most people stall at month four.</p>
+          </div>
+          <div class="row">
+            <div class="num">03</div>
+            <div>
+              <h4>Power</h4>
+              <div class="sub">Add the muscle</div>
+            </div>
+            <p>Heavy-Light training built around your schedule. Strength and size where it actually shows, on three to
+              four sessions a week, not six.</p>
+          </div>
+          <div class="row">
+            <div class="num">04</div>
+            <div>
+              <h4>Live Lean</h4>
+              <div class="sub">Make it the baseline</div>
+            </div>
+            <p>Lock it in for good. The body becomes the default, not the project you restart every January. This is the
+              phase almost nobody gets to because almost nobody stays long enough.</p>
+          </div>
+        </div>
+
+        <div class="frameworks">
+          <span><b>4-2-1</b> Fat Loss Protocol</span>
+          <span><b>Insulin Reboot</b> Protocol</span>
+          <span><b>ADE</b> Nutrition System</span>
+          <span><b>Heavy-Light</b> Training</span>
+          <span><b>Metabolism</b> as a Thermostat</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <div class="statement">
+      <h2 class="display">We build it around your life. <em>Not the other way around.</em></h2>
+      <a href="https://apps.bachperformance.com/getrippedrow" class="btn">Apply now</a>
+      <div class="under">3 sessions a week &middot; 30 to 60 minutes &middot; Built for a full calendar</div>
     </div>
-    <div class="no">
-      <h3>This is not you</h3>
-      <ul>
-        <li>You want therapy, not a transformation.</li>
-        <li>You want to outsource the responsibility, not just the plan.</li>
-        <li>You are curious, not committed.</li>
-        <li>You expect to be chased and coddled.</li>
-        <li>You want a hack instead of the ruthless execution of the basics.</li>
-      </ul>
-    </div>
+
+    <!-- RESULTS -->
+    <section class="pad" id="results">
+      <div class="wrap">
+        <div class="chapter"><span class="bar"></span><span class="lbl">Results</span></div>
+        <h2 class="display" style="font-size:clamp(28px,3.6vw,44px);">The standard, not the exception.</h2>
+        <div class="resnums">
+          <div class="resnum">
+            <div class="big">17-21 lbs</div>
+            <div class="lbl">Lost in 90 days for men. 11 to 15 for women.</div>
+          </div>
+          <div class="resnum">
+            <div class="big">2-3 sizes</div>
+            <div class="lbl">Down in pants or dress size</div>
+          </div>
+          <div class="resnum">
+            <div class="big">3,000+</div>
+            <div class="lbl">Clients coached since 2012</div>
+          </div>
+        </div>
+        <p class="lede"
+          style="margin-top:44px;text-align:center;font-size:20px;color:var(--white);font-family:Georgia,serif;">Same
+          job. Same kids. Same calendar. <span style="color:var(--accent);font-style:italic;">They just started.</span>
+        </p>
+        <div class="ba">
+  <div class="slot">
+    <img src="./ass/imgi_53_John-Pearl.webp" alt="Before After Result 01">
   </div>
-</div></section>
 
-<!-- CLOSE -->
-<section class="close" id="apply">
-  <h2 class="display">Stop guessing. <em>Go pro.</em></h2>
-  <p>A year from now you either have the body back, or you have one more year of knowing exactly what to do and not doing it. One application for every program. We review it and point you to the right fit, or tell you straight if now is not the time.</p>
-  <div class="scarce">Limited spots each month &middot; [Set current count]</div>
-  <a href="https://apps.bachperformance.com/getrippedrow" class="btn">Start your application</a>
-</section>
+  <div class="slot">
+    <img src="./ass/imgi_53_John-Pearl.webp" alt="Before After Result 02">
+  </div>
 
-<footer>
-  <div class="promise">Results don't come from staying motivated. They come from standards.</div>
-  <div>Bach Performance &middot; Mount Pleasant, SC &middot; bachperformance.com</div>
-</footer>
+  <div class="slot">
+    <img src="./ass/imgi_53_John-Pearl.webp" alt="Before After Result 03">
+  </div>
+
+  <div class="slot">
+    <img src="./ass/imgi_53_John-Pearl.webp" alt="Before After Result 04">
+  </div>
 </div>
+      </div>
+    </section>
 
+    <!-- IV / THE QUALIFIER -->
+    <section class="pad bg2 bordered">
+      <div class="wrap narrow">
+        <div class="chapter"><span class="bar"></span><span class="lbl">IV / The Qualifier</span></div>
+        <h2 class="display" style="font-size:clamp(28px,3.6vw,44px);max-width:20ch;">There is a certain guy <em>this is
+            built for.</em></h2>
+        <div class="qual" style="margin-top:40px;">
+          <div class="yes">
+            <h3>This is you</h3>
+            <ul>
+              <li>You are 35 to 55, and you have built the career and the family.</li>
+              <li>You used to be the athlete and you want that body back.</li>
+              <li>You want the decisions taken off your plate, not more information.</li>
+              <li>You will be honest about your food, your sleep, and your effort.</li>
+              <li>You want fitness to improve your life, not consume it.</li>
+            </ul>
+          </div>
+          <div class="no">
+            <h3>This is not you</h3>
+            <ul>
+              <li>You want therapy, not a transformation.</li>
+              <li>You want to outsource the responsibility, not just the plan.</li>
+              <li>You are curious, not committed.</li>
+              <li>You expect to be chased and coddled.</li>
+              <li>You want a hack instead of the ruthless execution of the basics.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSE -->
+    <section class="close" id="apply">
+      <h2 class="display">Stop guessing. <em>Go pro.</em></h2>
+      <p>A year from now you either have the body back, or you have one more year of knowing exactly what to do and not
+        doing it. One application for every program. We review it and point you to the right fit, or tell you straight
+        if now is not the time.</p>
+      <div class="scarce">Limited spots each month &middot; [Set current count]</div>
+      <a href="https://apps.bachperformance.com/getrippedrow" class="btn">Start your application</a>
+    </section>
+
+    <footer>
+      <div class="promise">Results don't come from staying motivated. They come from standards.</div>
+      <div>Bach Performance &middot; Mount Pleasant, SC &middot; bachperformance.com</div>
+    </footer>
+  </div>
+
+  <!-- ================= BACH PERFORMANCE LANDING PAGE =================
+     Paste this ENTIRE block into a WordPress "Custom HTML" block.
+     All CSS is namespaced under .bp-lp so it cannot affect the rest of your site.
+     ================================================================= -->
+
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </body>
 </html>
