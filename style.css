@@ -908,7 +908,7 @@
 }
 /* add  */
 .bp-lp .ba .slot {
-    aspect-ratio: 3/4;
+    aspect-ratio: 4/4;
     overflow: hidden;
     background: #111;
     border: 1px solid var(--line);
@@ -919,7 +919,7 @@
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     transition: transform .4s ease;
 }
