@@ -10,7 +10,24 @@
     --dim: #6b6b6b;
     --white: #ffffff;
 }
+/* logo css */
 
+.bp-lp .logo {
+  display: flex;
+  align-items: center;
+}
+
+.bp-lp .logo img {
+  display: block;
+  height: 55px;   /* Apni zarurat ke mutabiq change kar sakte ho */
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .bp-lp .logo img {
+    height: 40px;
+  }
+}
 /* .bp-lp * {
     box-sizing: border-box;
     margin: 0px;
