@@ -217,6 +217,227 @@
 .bp-lp footer{border-top:1px solid var(--line);padding:40px 32px;text-align:center;color:var(--dim);font-size:13px;}
 .bp-lp footer .promise{color:var(--text);font-family:Georgia,serif;font-size:16px;font-style:italic;margin-bottom:12px;}
 
+/* add css  */
+.hero .art {
+    width: 100%;
+    height: 600px; /* apni zarurat ke hisab se */
+    overflow: hidden;
+}
+
+.hero .art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+*
+
+{margin: 0px;
+padding: 0px;}
+
+/* [ Image. Suit, mirror, or gym at 5am. Moody, high contrast ] */
+/* GAP Section Image */
+#gap .art {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gap .art img {
+    width: 100%;
+    max-width: 650px;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    #gap .art img {
+        height: 450px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #gap .art {
+        margin-top: 30px;
+    }
+
+    #gap .art img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 12px;
+    }
+}
+
+
+/* =========================
+   II / THE OPERATOR IMAGE
+========================= */
+
+#operator .art{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:#0d0909;
+}
+
+#operator .art img{
+    width:100%;
+    height:100%;
+    min-height:700px;
+    object-fit:cover;
+    display:block;
+}
+
+/* Tablet */
+@media (max-width:991px){
+
+    #operator .art img{
+        min-height:500px;
+    }
+
+}
+
+/* Mobile */
+@media (max-width:767px){
+
+    #operator .art{
+        margin-top:40px;
+    }
+
+    #operator .art img{
+        min-height:auto;
+        height:450px;
+        width:100%;
+        object-fit:cover;
+    }
+
+}
+/* ==========================
+   II / THE OPERATOR SECTION
+========================== */
+
+.split.rev{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+    padding:80px 0;
+}
+
+.split.rev .copy{
+    padding:0 50px;
+}
+
+.split.rev .art{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:#111;
+}
+
+.split.rev .art img{
+    width:100%;
+    height:700px;
+    object-fit:cover;
+    display:block;
+}
+
+/* ==========================
+   Tablet
+========================== */
+
+@media (max-width:992px){
+
+    .split.rev{
+        grid-template-columns:1fr;
+        gap:40px;
+        padding:60px 20px;
+    }
+
+    .split.rev .copy{
+        padding:0;
+        order:1;
+    }
+
+    .split.rev .art{
+        order:2;
+    }
+
+    .split.rev .art img{
+        width:100%;
+        height:auto;
+        max-height:600px;
+        object-fit:contain;
+    }
+
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media (max-width:768px){
+
+    .split.rev{
+        grid-template-columns:1fr;
+        gap:30px;
+        padding:40px 15px;
+    }
+
+    .split.rev .copy{
+        order:1;
+        padding:0;
+    }
+
+    .split.rev .art{
+        order:2;
+        width:100%;
+        padding:0;
+        background:#111;
+    }
+
+    .split.rev .art img{
+        width:100%;
+        height:auto;
+        max-height:none;
+        object-fit:contain;
+        display:block;
+    }
+
+}
+
+/* ==========================
+   Small Mobile
+========================== */
+
+@media (max-width:480px){
+
+    .split.rev{
+        padding:30px 10px;
+    }
+
+    .split.rev .copy{
+        padding:0;
+    }
+
+    .split.rev .art img{
+        width:100%;
+        height:auto;
+        object-fit:contain;
+    }
+
+}
 </style>
 </head>
 <body>
@@ -245,7 +466,7 @@
     </div>
     <div class="fineprint">By application. Limited roster.</div>
   </div></div>
-  <div class="art">[ Hero image. Eric, or a client, shot dark on black ]</div>
+  <div class="art"> <img src="../Programs/ass/Hero image. Eric, or a client, shot dark on black.png" alt="Eric training" class="hero-image"></div>
 </header>
 
 <!-- PRESS -->
@@ -266,7 +487,9 @@
     <p>Every plan works for three weeks. Then a travel week, a launch, a sick kid, and it is gone. You are not short on information. You have read all of it.</p>
     <p>You are short on a standard, and a system that survives a real calendar.</p>
   </div>
-  <div class="art">[ Image. Suit, mirror, or gym at 5am. Moody, high contrast ]</div>
+   <div class="art">
+    <img src="../Programs/ass/Image. Suit, mirror, or gym at 5am. Moody, high contrast.jpg" alt="Suit mirror gym at 5am">
+  </div>
 </section>
 
 <!-- II / THE OPERATOR -->
@@ -279,7 +502,9 @@
     <p>That is the job. I remove the decisions, run your training and nutrition off your data, and hold the standard when you do not feel like holding it.</p>
     <p class="sig">Eric Bach, Founder. Mount Pleasant, SC.</p>
   </div>
-  <div class="art">[ Photo of Eric. Portrait, black background ]</div>
+   <div class="art">
+        <img src="../Programs/ass/2B34D0C7-A363-4140-A577-9DEE8F4F35E3.jpg" alt="Eric Bach Portrait">
+    </div>
 </section>
 
 <!-- PROGRAMS -->
