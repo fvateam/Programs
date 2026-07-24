@@ -319,6 +319,7 @@
     white-space: nowrap;
 }
 
+
 .bp-lp section.pad {
     padding: 96px 0;
 }
@@ -331,7 +332,58 @@
     border-bottom: 1px solid var(--line);
 }
 
-/* SPLIT SECTION */
+/*  */
+.bp-lp .press .marks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px 40px;
+}
+
+
+.bp-lp .press .marks img {
+    height: 70px;      /* Pehle 28px tha */
+    width: auto;
+    max-width: 240px;  /* Pehle 150px tha */
+    object-fit: contain;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.bp-lp .press .marks img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .bp-lp .press .marks {
+        gap: 18px 25px;
+    }
+
+    .bp-lp .press .marks img {
+        height: 22px;
+        max-width: 120px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .bp-lp .press .marks {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-items: center;
+    }
+
+    .bp-lp .press .marks img {
+        height: 20px;
+        max-width: 110px;
+    }
+}
+/* SPLIT SECTIOasN */
+
 
 .bp-lp .art {
   flex: 1;
@@ -572,8 +624,18 @@
 
 .bp-lp .stripe-wrap {
     margin-top: 24px;
+    /* justify-content: center; */
 }
+/* media */
 
+@media (max-width: 992px) {
+    .bp-lp .stripe-wrap {
+    display: flex;
+
+    justify-content: center;
+}
+    
+}
 .bp-lp .card .go {
     margin-top: 14px;
     display: block;
